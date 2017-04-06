@@ -9,4 +9,9 @@
     <string name="menu_sub_items_title">Sub items</string>
     <string name="menu_sub_item_one">Sub item 1</string>
     <string name="menu_sub_item_two">Sub item 2</string>
+
+    <!-- TextView fragments -->
+    <string name="fragment_one">Fragment 1</string>
+    <string name="fragment_two">Fragment 2</string>
+    <string name="fragment_three">Fragment 3</string>
 </resources>
