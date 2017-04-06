@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">DrawerMenuFragments</string>
+    <string name="menu_item_one">First</string>
+    <string name="menu_item_two">Second</string>
+    <string name="menu_item_three">Third</string>
 </resources>
