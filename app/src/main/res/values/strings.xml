@@ -14,4 +14,7 @@
     <string name="fragment_one">Fragment 1</string>
     <string name="fragment_two">Fragment 2</string>
     <string name="fragment_three">Fragment 3</string>
+
+    <!-- TextView nav_header -->
+    <string name="text_header">Header</string>
 </resources>
