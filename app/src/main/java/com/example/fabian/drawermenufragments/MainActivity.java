@@ -91,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Realza el item seleccionado en el NavigationView
         menuItem.setChecked(true);
-        // Añadimos el titulo a la toolbar
-        setTitle(menuItem.getTitle());
         // Cierra el navigation drawer
         drawerLayout.closeDrawers();
     }

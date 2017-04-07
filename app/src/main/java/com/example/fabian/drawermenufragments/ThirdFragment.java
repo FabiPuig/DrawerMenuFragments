@@ -23,4 +23,10 @@ public class ThirdFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_third, container, false);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getActivity().setTitle( R.string.fragment_three );
+    }
 }
