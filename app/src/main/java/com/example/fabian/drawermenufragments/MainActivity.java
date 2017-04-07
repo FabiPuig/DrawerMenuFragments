@@ -1,9 +1,9 @@
 package com.example.fabian.drawermenufragments;
 
+import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar( toolbar );
 
         drawerLayout = (DrawerLayout) findViewById( R.id.drawer_layout );
+        drawerToggle = setupDrawerToggle();
+        // Vincula los eventos del DrawerLayout al ActionBarToggle
+        drawerLayout.addDrawerListener( drawerToggle );
+
 
         // Preparamos el drawer view
         navigationView = (NavigationView) findViewById( R.id.nvView );
@@ -39,13 +43,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected( MenuItem item ) {
 
-        // La acción home/up de la barra de acción debe abrir o cerrar el drawer
-        switch ( item.getItemId() ) {
-            case android.R.id.home:
-                drawerLayout.openDrawer( GravityCompat.START );
-                return true;
+        if ( drawerToggle.onOptionsItemSelected( item )) {
+            return true;
         }
-
         return super.onOptionsItemSelected( item );
     }
 
@@ -93,5 +93,21 @@ public class MainActivity extends AppCompatActivity {
         menuItem.setChecked(true);
         // Cierra el navigation drawer
         drawerLayout.closeDrawers();
+    }
+
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle( this, drawerLayout, toolbar, R.string.drawer_open,  R.string.drawer_close );
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate( savedInstanceState );
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged( Configuration newConfig ) {
+        super.onConfigurationChanged( newConfig );
+        drawerToggle.onConfigurationChanged( newConfig );
     }
 }
