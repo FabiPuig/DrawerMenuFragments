@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Inserta el fragment reemplazando el existente
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).addToBackStack("anterior").commit();
 
         // Realza el item seleccionado en el NavigationView
         menuItem.setChecked(true);
